@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <EnableVerifier>False</EnableVerifier>
+    <AllDrivers>False</AllDrivers>
+    <VerifyProjectOutput>True</VerifyProjectOutput>
+    <VerifyDrivers />
+    <VerifyFlags>133563</VerifyFlags>
+    <TestCertificate>CN="WDKTestCert baseline,132169404231378688" | 0BEF111DA3A1A215630BB4F993199943EF1387B1</TestCertificate>
+    <RemoveDriver>True</RemoveDriver>
+    <InstallMode>HardwareId</InstallMode>
+    <HardwareIdString>Root\ObCallbackTest</HardwareIdString>
+    <CommandLine />
+    <ScriptPath>C:\Program Files (x86)\Windows Kits\10\Testing\Tests\Utilities\DefaultDriverPackageInstallationTask.dll</ScriptPath>
+    <DbgengRemoteMachineName>New Computer</DbgengRemoteMachineName>
+    <DbgengKernelMachineName>New Computer</DbgengKernelMachineName>
+    <DeployFiles />
+    <ScriptName>Microsoft.DriverKit.DefaultDriverPackageInstallationClass.PerformDefaultDriverPackageInstallation</ScriptName>
+    <ScriptDeviceQuery />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <RemoveDriver>True</RemoveDriver>
+    <InstallMode>CustomCommand</InstallMode>
+    <HardwareIdString />
+    <CommandLine>C:\ObCallbackTest\ObCallbackTestcrtrl.exe -install</CommandLine>
+    <ScriptPath>C:\Program Files (x86)\Windows Kits\10\Testing\Tests\Utilities\DefaultDriverPackageInstallationTask.dll</ScriptPath>
+    <DbgengRemoteMachineName>192.168.251.131</DbgengRemoteMachineName>
+    <DbgengKernelMachineName>192.168.251.131</DbgengKernelMachineName>
+    <DeployFiles />
+    <ScriptName>Microsoft.DriverKit.DefaultDriverPackageInstallationClass.PerformDefaultDriverPackageInstallation</ScriptName>
+    <ScriptDeviceQuery />
+    <DebuggerFlavor>DbgengRemoteDebugger</DebuggerFlavor>
+    <DbgengRemoteCommand>C:\ObCallbackTest\ObCallbackTestCtrl.exe</DbgengRemoteCommand>
+    <DbgengRemoteCommandArguments>-install</DbgengRemoteCommandArguments>
+  </PropertyGroup>
+</Project>

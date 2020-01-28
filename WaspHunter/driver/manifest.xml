@@ -1,0 +1,87 @@
+﻿<?xml version='1.0' standalone='yes'?>
+<instrumentationManifest
+    xmlns="http://schemas.microsoft.com/win/2004/08/events"
+    xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://schemas.microsoft.com/win/2004/08/events eventman.xsd"
+    >
+  <instrumentation>
+    <events>
+      <provider
+          guid="{b5a0bda9-50fe-4d0e-a83d-bae3f58c94d6}"
+          messageFileName="%SystemDrive%\ObCallbackTest\ObCallbackTest.sys"
+          name="WaspHunter"
+          resourceFileName="%SystemDrive%\ObCallbackTest\ObCallbackTest.sys"
+          symbol="DriverControlGuid"
+          >
+        <channels>
+          <importChannel
+              chid="SYSTEM"
+              name="System"
+              />
+        </channels>
+        <maps>
+          <valueMap name="Request_type">
+            <map value="1" message="$(string.Request_type.OpenProcess)"/>
+            <map value="2" message="$(string.Request_type.OpenThread)"/>
+          </valueMap>
+        </maps>
+        <templates>
+          <template tid="tid_crossprocess">
+            <data
+                inType="win:UInt32"
+                name="request_origin"
+                outType="xs:unsignedInt"
+                />
+            <data
+                inType="win:UInt32"
+                name="target_pid"
+                outType="xs:unsignedInt"
+                />
+            <data
+                inType="win:UInt32"
+                name="target_tid"
+                outType="xs:unsignedInt"
+                />
+            <data
+                inType="win:UInt32"
+                name="request_type"
+                outType="xs:unsignedInt"
+                map="Request_type"
+                />
+          </template>
+        </templates>
+        <events>
+          <event
+              channel="SYSTEM"
+              level="win:Informational"
+              message="$(string.Request_type.CrossProcess1)"
+              opcode="win:Start"
+              symbol="CrossProcess"
+              template="tid_crossprocess"
+              value="1"
+              />
+        </events>
+      </provider>
+    </events>
+  </instrumentation>
+  <localization xmlns="http://schemas.microsoft.com/win/2004/08/events">
+    <resources culture="en-US">
+      <stringTable>
+        <string
+            id="Request_type.OpenProcess"
+            value="OpenProcess"
+            />
+        <string
+            id="Request_type.OpenThread"
+            value="OpenThread"
+            />
+        <string
+            id="Request_type.CrossProcess1"
+            value="Cross Process Event : Process %1 accessed %2 using %4"
+            />
+      </stringTable>
+    </resources>
+  </localization>
+</instrumentationManifest>

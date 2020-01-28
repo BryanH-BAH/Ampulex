@@ -1,2 +1,2 @@
 # Ampulex
-A fork of https://github.com/SafeBreach-Labs/pinjectra with a practical implementation of Stack Bombing
+Jedi mind-control a process through Stack Bombing and reflective DLL Loading through shared memory.  Win10/x64 ONLY (https://en.wikipedia.org/wiki/Ampulex)
